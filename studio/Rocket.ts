@@ -1,3 +1,5 @@
+import { Payload } from "./Payload";
+
 export class Rocket {
   //properties and methods
   name: string;
@@ -13,9 +15,25 @@ export class Rocket {
     let sum: number = 0;
     items.forEach(function (item) {
       if (items.includes(this.massKg)) {
-        sum = this.massKg + sum;
+        sum = sum + this.massKg;
       }
       return sum;
     });
+  }
+
+  currentMassKg(): number {
+    let currentMass: number = 0;
+    this.astronauts.forEach(function (weight) {
+      if (this.astronauts.includes(this.massKg)) {
+        currentMass = currentMass + this.massKg;
+      }
+      return (currentMass = currentMass + this.sumMass);
+    });
+  }
+
+  canAdd(item: Payload): boolean {
+    if (this.currentMassKg() + item.massKg <= this.totalCapacityKg) {
+      return true;
+    }
   }
 }
